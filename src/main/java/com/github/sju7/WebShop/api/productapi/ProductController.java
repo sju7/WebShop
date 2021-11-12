@@ -1,8 +1,9 @@
-package com.github.sju7.WebShop.api;
+package com.github.sju7.WebShop.api.productapi;
 
+import com.github.sju7.WebShop.database.product.ProductRepository;
 import com.github.sju7.WebShop.model.Product;
 import io.swagger.v3.oas.annotations.Operation;
-import org.apache.coyote.Response;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,8 +13,11 @@ import java.util.List;
 
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("api/product")
 public class ProductController {
+
+    private final ProductRepository repository;
 
     @GetMapping("/products")
     @Operation(
@@ -34,7 +38,8 @@ public class ProductController {
     }
 
     @PostMapping("/")
-    public ResponseEntity<HttpStatus> newProduct(@RequestParam Product p){
+    public ResponseEntity<HttpStatus> newProduct(ProductRequest p){
+        repository.addProduct(new Product(0, p.getName(), p.getDescription(), p.getStock()));
         return ResponseEntity.ok().body(HttpStatus.OK);
     }
 }
