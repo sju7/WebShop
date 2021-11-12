@@ -39,7 +39,7 @@ public class ProductController {
 
     @PostMapping("/")
     public ResponseEntity<HttpStatus> newProduct(ProductRequest p){
-        repository.addProduct(new Product(0, p.getName(), p.getDescription(), p.getStock()));
+        repository.addProduct(new Product(0, p.getName(), p.getDescription(), p.getCategori(), p.getStock()));
         return ResponseEntity.ok().body(HttpStatus.OK);
     }
 }

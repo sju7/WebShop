@@ -6,5 +6,6 @@ import lombok.Value;
 public class ProductRequest {
     String name;
     String description;
+    String categori;
     int stock;
 }
