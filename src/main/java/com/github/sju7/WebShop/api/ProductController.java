@@ -16,6 +16,10 @@ import java.util.List;
 public class ProductController {
 
     @GetMapping("/products")
+    @Operation(
+            summary = "Gets all product",
+            description = "Gets all products from db"
+    )
     public List<Product> getProducts(){
         return new ArrayList<>(null);
     }
