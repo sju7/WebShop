@@ -1,0 +1,36 @@
+package com.github.sju7.WebShop.api;
+
+import com.github.sju7.WebShop.model.Product;
+import io.swagger.v3.oas.annotations.Operation;
+import org.apache.coyote.Response;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+@RestController
+@RequestMapping("api/product")
+public class ProductController {
+
+    @GetMapping("/products")
+    public List<Product> getProducts(){
+        return new ArrayList<>(null);
+    }
+
+    @GetMapping("/{id}")
+    @Operation(
+            summary = "Gets product from id",
+            description = "Gets a product from pathvariable id"
+    )
+    public Product getProductById(@PathVariable(value="id") int id){
+        return null;
+    }
+
+    @PostMapping("/")
+    public ResponseEntity<HttpStatus> newProduct(@RequestParam Product p){
+        return ResponseEntity.ok().body(HttpStatus.OK);
+    }
+}
