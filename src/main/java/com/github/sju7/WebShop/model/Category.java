@@ -3,8 +3,8 @@ package com.github.sju7.WebShop.model;
 import lombok.Value;
 
 @Value
-public class Categori {
+public class Category {
 
-    private int categoriId;
+    private int categoryId;
     private String cateGoriName;
 }

@@ -1,6 +1,6 @@
-package com.github.sju7.WebShop.database.categori;
+package com.github.sju7.WebShop.database.category;
 
-import com.github.sju7.WebShop.model.Categori;
+import com.github.sju7.WebShop.model.Category;
 import com.github.sju7.WebShop.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -8,14 +8,14 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CategoriRepository {
+public class CategoryRepository {
 
     @Autowired
     NamedParameterJdbcTemplate template;
 
-    public Categori addCategori(Categori c) {
-        template.update("INSERT INTO CATEGORI(categoriname) VALUES(:categoriname)",
-                new MapSqlParameterSource().addValue("categoriname", c.getCateGoriName()));
+    public Category addCategory(Category c) {
+        template.update("INSERT INTO CATEGORI(categoryname) VALUES(:categoryname)",
+                new MapSqlParameterSource().addValue("categoryname", c.getCateGoriName()));
         return c;
     }
 }

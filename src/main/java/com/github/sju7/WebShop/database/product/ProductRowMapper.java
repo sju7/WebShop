@@ -13,7 +13,7 @@ public class ProductRowMapper implements RowMapper<Product> {
                 rs.getInt("productid"),
                 rs.getString("productname"),
                 rs.getString("productdescription"),
-                rs.getString("categoriid"),
+                rs.getString("categoryid"),
                 rs.getInt("stock")
         );
     }

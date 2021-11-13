@@ -14,9 +14,9 @@ public class ProductRepository {
     @Autowired
     NamedParameterJdbcTemplate template;
 
-    public List<Product> getByCategori(int categoriid) {
-        List<Product> ps = template.query("SELECT * FROM PRODUCT WHERE categoriid = " + 1,
-                new MapSqlParameterSource().addValue("categoriid", 1), new ProductRowMapper());
+    public List<Product> getByCategory(int categoryid) {
+        List<Product> ps = template.query("SELECT * FROM PRODUCT WHERE categoryid = " + 1,
+                new MapSqlParameterSource().addValue("categoryid", 1), new ProductRowMapper());
         return ps;
     }
 

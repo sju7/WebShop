@@ -1,8 +1,8 @@
-package com.github.sju7.WebShop.api.categori;
+package com.github.sju7.WebShop.api.category;
 
-import com.github.sju7.WebShop.database.categori.CategoriRepository;
+import com.github.sju7.WebShop.database.category.CategoryRepository;
 import com.github.sju7.WebShop.database.product.ProductRepository;
-import com.github.sju7.WebShop.model.Categori;
+import com.github.sju7.WebShop.model.Category;
 import com.github.sju7.WebShop.model.Product;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
@@ -18,27 +18,27 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("api/categori")
-public class CategoriApi {
-    private final CategoriRepository repository;
+@RequestMapping("api/category")
+public class CategoryApi {
+    private final CategoryRepository repository;
     private final ProductRepository productRepository;
 
     @GetMapping("/products")
     @Operation(
-            summary = "Gets all product from a categori",
-            description = "Gets all products from a categori from db"
+            summary = "Gets all product from a category",
+            description = "Gets all products from a category from db"
     )
     public ResponseEntity<List<Product>> getProductsInCateGory (int id){
-        return ResponseEntity.ok().body(productRepository.getByCategori(id));
+        return ResponseEntity.ok().body(productRepository.getByCategory(id));
     }
 
     @PostMapping("/")
     @Operation(
-            summary = "Reigster a new categori",
-            description = "Registers a new categori to db"
+            summary = "Reigster a new category",
+            description = "Registers a new category to db"
     )
-    public ResponseEntity<HttpStatus> getProducts(CategoriRequest c){
-        repository.addCategori(new Categori(0, c.getCategoriName()));
+    public ResponseEntity<HttpStatus> getProducts(CategoryRequest c){
+        repository.addCategory(new Category(0, c.getCategoryName()));
         return ResponseEntity.ok().body(HttpStatus.OK);
     }
 }
